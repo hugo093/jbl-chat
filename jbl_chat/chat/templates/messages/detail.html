@@ -1,0 +1,10 @@
+<li class="d-flex mb-2 {% if message.sender == request.user.username %}justify-content-end{% else %}justify-content-start{% endif %}">
+    <div class="card rounded-5 mw-66 {% if message.sender == request.user.username %}text-end bg-body-tertiary{% else %}text-start text-bg-light{% endif %}">
+        <div class="card-body px-5">
+            <p class="card-text text-wrap text-break">{{ message.content }}</p>
+        </div>
+        <div class="card-footer bg-transparent text-end text-wrap text-break fs-7 text-secondary px-5 border-0">
+            {{ message.created }}
+        </div>
+    </div>
+</li>

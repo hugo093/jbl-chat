@@ -1,0 +1,10 @@
+Django>=4,<5
+djangorestframework==3.16.0
+psycopg2-binary==2.9.10
+channels[daphne]==4.2.2
+django-braces==1.17.0
+django-crispy-forms==2.4
+crispy-bootstrap5==2025.6
+drf-standardized-errors==0.15.0
+django-session-timeout==0.1.0
+whitenoise==6.9.0

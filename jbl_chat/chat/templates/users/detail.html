@@ -1,0 +1,14 @@
+<li class="nav-item">
+    <a class="nav-link icon-link d-flex align-items-center gap-2"
+       href="{% url 'messages-list-by-receiver' other_username=user.username %}"
+       hx-get="{% url 'messages-list-by-receiver' other_username=user.username %}" hx-target=".conversation"
+       hx-swap="outerHTML scroll:#message-list:bottom">
+        <button class="btn btn-bd-primary rounded-circle"><i class="bi bi-person-fill fs-4"></i></button>
+
+        {% if user.first_name or user.last_name %}
+            {{ user.first_name }} {{ user.last_name }}
+        {% else %}
+            {{ user.username }}
+        {% endif %}
+    </a>
+</li>

@@ -1,0 +1,23 @@
+{% load crispy_forms_tags %}
+<div ws-connect="/ws/chat/{{ other_username }}/" hx-ext="ws"
+     class="d-flex flex-column justify-content-center align-items-center rounded-3 bg-dark shadow conversation h-100">
+    <div class="shadow w-100 text-start px-4 pt-4">
+        <h1 class="h3">{{ other_person_label }}</h1>
+    </div>
+    <ul class="list-unstyled w-100 h-100 overflow-auto px-4 pt-2"
+        id="message-list"
+    >
+        {% for message in object_list %}
+            {% include "messages/detail.html" %}
+        {% endfor %}
+    </ul>
+    <form ws-send
+          hx-on:htmx:ws-after-send="this.reset()"
+          class="w-100 d-flex flex-row form-message px-4 pb-4">
+        {% csrf_token %}
+        {{ form_message|crispy }}
+        <button type="submit" class="btn btn-bd-primary">
+            <i class="bi bi-send"></i>
+        </button>
+    </form>
+</div>

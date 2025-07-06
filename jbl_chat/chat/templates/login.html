@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+{% block page_title %} JBL Chat | Login {% endblock page_title %}
+
+{% block html_attributes %}class="h-100"{% endblock html_attributes %}
+
+{% block extra_css %}
+    <link href="{% static 'dist/css/sign-in.min.css' %}" rel="stylesheet"/>
+{% endblock extra_css %}
+
+{% block body_attributes %}class="d-flex align-items-center py-4 bg-body-tertiary h-100"{% endblock body_attributes %}
+
+{% block content %}
+    <main class="form-signin w-100 m-auto">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            {{ form|crispy }}
+            <button class="btn btn-bd-primary w-100 py-2" type="submit">Sign in
+            </button>
+        </form>
+    </main>
+{% endblock content %}

@@ -1,0 +1,55 @@
+@use "sass:map";
+@import "bootstrap/scss/bootstrap";
+
+$bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
+
+@import "bootstrap-icons/font/bootstrap-icons";
+
+$utilities: map.merge(
+                $utilities, (
+                "max-width": (
+                        property: max-width,
+                        class: mw,
+                        values: (
+                                25: 25%,
+                                33: 33%,
+                                50: 50%,
+                                66: 66%,
+                                75: 75%,
+                                100: 100%
+                        )
+                ),
+                "font-size": (
+                        rfs: true,
+                        property: font-size,
+                        class: fs,
+                        values: (
+                                7: 0.7rem
+                        )
+                ),
+        )
+);
+
+@import "bootstrap/scss/utilities/api";
+
+.btn-bd-primary {
+  --bd-violet-bg: #712cf9;
+  --bd-violet-rgb: 112.520, 44.062, 249.437;
+  --bs-btn-font-weight: 600;
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-bg: var(--bd-violet-bg);
+  --bs-btn-border-color: var(--bd-violet-bg);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: #6528e0;
+  --bs-btn-hover-border-color: #6528e0;
+  --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+  --bs-btn-active-color: var(--bs-btn-hover-color);
+  --bs-btn-active-bg: #5a23c8;
+  --bs-btn-active-border-color: #5a23c8;
+}
+
+
+
+.resize-none {
+  resize: none;
+}

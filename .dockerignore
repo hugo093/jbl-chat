@@ -1,0 +1,12 @@
+.git
+.github
+.gitignore
+.editorconfig
+node_modules
+.tox
+*.pyc
+__pycache__
+bandit.xml
+bom.xml
+htmlcov
+.coverage

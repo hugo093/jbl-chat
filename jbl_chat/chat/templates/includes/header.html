@@ -1,0 +1,16 @@
+<header class="vh-100 py-3 ps-2">
+    <nav class="navbar navbar-expand bg-transparent h-100" data-bs-theme="dark">
+        <div class="container-fluid d-flex flex-column justify-content-between h-100">
+        <div class="d-flex flex-column gap-1">
+            <a class="btn btn-bd-primary rounded-circle d-md-none" data-bs-toggle="offcanvas" data-bs-target="#sidebar"><i class="bi bi-chat fs-4"></i></a>
+            <button class="btn btn-bd-primary rounded-circle"><i class="bi bi-person-fill fs-4"></i></button>
+        </div>
+
+        <form class="d-flex" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-box-arrow-right fs-4"></i>
+            </button>
+        </form>
+            </div>
+    </nav>
+</header>

@@ -1,0 +1,1 @@
+create database jbl_chat;

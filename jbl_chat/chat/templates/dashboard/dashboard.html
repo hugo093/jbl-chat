@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "dist/css/dashboard.min.css" %}">
+{% endblock extra_css %}
+
+{% block html_attributes %}class="vh-100 overflow-hidden"{% endblock html_attributes %}
+{% block body_attributes %}class="vh-100 d-flex flex-row gap-3 bg-body-tertiary"{% endblock body_attributes %}
+{% block content %}
+    {% include "includes/header.html" %}
+
+    <div class="container-fluid">
+        <div class="row py-3 vh-100">
+
+            <div class="sidebar col-md-3 col-lg-2 p-0 bg-dark shadow rounded-3 h-100 offcanvas-md offcanvas-end bg-body-dark" id="sidebar" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title visually-hidden" id="sidebarMenuLabel">Users</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#sidebar"></button>
+                    </div>
+                    <div class="offcanvas-body d-md-flex flex-column pt-3 overflow-y-auto h-100">
+                        <div class="input-group px-3">
+                            <input type="text" class="form-control border-0 shadow bg-body-tertiary" name="search"
+                                   id="search-input"
+                                   hx-trigger="keyup changed throttle:500ms"
+                                   hx-swap="innerHTML" hx-target=".user-list" hx-get="{% url 'users-list' %}"
+                            >
+
+                            <span class="input-group-text border-0 shadow bg-body-tertiary"><i class="bi bi-search"></i></span>
+                        </div>
+                        <ul class="nav flex-column user-list"
+                            hx-get="{% url 'users-list' %}"
+                            hx-swap="innerHTML"
+                            hx-include="#search-input"
+                            hx-trigger="load, every 10s"
+                        >
+                            <div class="spinner-border htmx-indicator mx-auto my-5" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </ul>
+                    </div>
+            </div>
+
+            <main class="col-sm-12 col-md-9 col-lg-10 px-md-4 h-100">
+                <div class="d-flex flex-column justify-content-center align-items-center rounded-3 bg-dark shadow conversation h-100">
+                    <i class="bi bi-chat h2" aria-hidden="true"></i>
+                    <h2>Start chatting!</h2>
+                    <div class="spinner-border htmx-indicator" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock content %}
