@@ -132,3 +132,4 @@ bandit.xml
 bom.xml
 htmlcov
 .coverage
+.idea

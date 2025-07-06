@@ -10,3 +10,5 @@ bandit.xml
 bom.xml
 htmlcov
 .coverage
+.idea
+jbl_chat/static
